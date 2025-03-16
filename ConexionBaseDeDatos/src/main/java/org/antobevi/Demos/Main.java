@@ -45,7 +45,7 @@ public class Main {
 
         // Modificamos un registro
         //ensaladaCaprese.setPrecio(10000.0);
-        //comidaDAO.modificarPrecioRegistro(ensaladaCaprese); // Ahora tenemos que agregar el ID manual aca, pero debería mapearse la info desde la bd
+        //comidaDAO.modificarPrecioRegistro(ensaladaCaprese); // TODO: Ahora tenemos que agregar el ID manual aca, pero debería mapearse la info desde la bd
 
         // Consulta tabla completa
         comidaDAO.consultarComidas();

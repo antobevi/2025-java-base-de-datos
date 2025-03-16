@@ -80,10 +80,10 @@ public class ComidaDAO {
             System.out.println("La tabla pudo ser consultada correctamente.");
 
             while(datos.next()) {
-                System.out.println("ID Comida: " + datos.getInt("ID"));
-                System.out.println("Nombre comida: " + datos.getString("NOMBRE"));
-                System.out.println("Descripcion comida: " + datos.getString("DESCRIPCION"));
-                System.out.println("Precio comida: " + datos.getDouble("PRECIO"));
+                System.out.println("ID Comida: " + datos.getInt("ID")
+                + "\n" + "Nombre comida: " + datos.getString("NOMBRE")
+                + "\n" + "Descripcion comida: " + datos.getString("DESCRIPCION")
+                + "\n" + "Precio comida: " + datos.getDouble("PRECIO"));
             }
 
             stmt.close();
