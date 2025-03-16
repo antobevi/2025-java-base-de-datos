@@ -33,12 +33,18 @@ public class ComidaDAO {
         }
     }
 
-    public void eliminar() {
+    public void eliminar(int id) {
         try {
-            // TODO
+            Connection conexion = Conexion.conectar();
+            String sql = "DELETE FROM COMIDA WHERE ID = " + id;
+            Statement stmt = conexion.createStatement();
+            stmt.execute(sql);
+            System.out.println("El registro se elimino correctamente de la base de datos.");
+            stmt.close();
 
         } catch (Exception e) {
-            // TODO
+            System.out.println("Ha ocurrido un error y el registro no pudo ser eliminado..");
+            e.printStackTrace();
         }
     }
 

@@ -39,7 +39,10 @@ public class Main {
         //comidaDAO.insertar(milanesaConPure);
         //comidaDAO.insertar(empanadaCaprese);
         //comidaDAO.insertar(pizzaMargarita);
-        comidaDAO.insertar(ensaladaCaprese);
+        //comidaDAO.insertar(ensaladaCaprese);
+
+        // Eliminamos un registro
+        //comidaDAO.eliminar(1);
 
     }
 
