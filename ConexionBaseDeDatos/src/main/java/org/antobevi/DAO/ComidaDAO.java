@@ -4,6 +4,7 @@ import org.antobevi.Conexiones.Conexion;
 import org.antobevi.Entidades.Comida;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 // Con esta clase podemos generar y enviar queries a la base de datos
@@ -66,6 +67,33 @@ public class ComidaDAO {
             System.out.println("Ha ocurrido un error y el registro no pudo ser modificado..");
             e.printStackTrace();
         }
+    }
+
+    public static void consultarComidas() { // Consulta todas las comidas que estan en la base de datos
+        Connection conexion = Conexion.conectar();
+
+        try {
+            String sql = "SELECT * FROM Comida";
+            Statement stmt = conexion.createStatement();
+            // Recorremos toda la tabla, leemos lo que nos devuelve el execute query
+            ResultSet datos = stmt.executeQuery(sql);
+            System.out.println("La tabla pudo ser consultada correctamente.");
+
+            while(datos.next()) {
+                System.out.println("ID Comida: " + datos.getInt("ID"));
+                System.out.println("Nombre comida: " + datos.getString("NOMBRE"));
+                System.out.println("Descripcion comida: " + datos.getString("DESCRIPCION"));
+                System.out.println("Precio comida: " + datos.getDouble("PRECIO"));
+            }
+
+            stmt.close();
+            conexion.close();
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error y la tabla no pudo ser consultada..");
+            e.printStackTrace();
+        }
+
     }
 
 }
