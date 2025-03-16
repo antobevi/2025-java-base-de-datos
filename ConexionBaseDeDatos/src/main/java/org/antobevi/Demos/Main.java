@@ -28,10 +28,9 @@ public class Main {
         pizzaMargarita.setDescripcion("Pizza con salsa de tomate, muzzarella y huevo duro");
         pizzaMargarita.setPrecio(25000.0);
 
-        Comida ensaladaCaprese = new Comida();
-        ensaladaCaprese.setNombre("ENSALADA CAPRESE");
-        ensaladaCaprese.setDescripcion("Ensalada con cubos de queso, tomates cherry y albaca");
-        ensaladaCaprese.setPrecio(8000.0);
+        Comida ensaladaCaprese = new Comida(
+                4,"ENSALADA CAPRESE",
+                "Ensalada con cubos de queso, tomates cherry y albaca", 8000.0);
 
         // Enviamos la comida al DAO para que pueda insertarla en la base de datos
         // Creamos un objeto ComidaDAO que va a recibir por parametro el objeto comida creado antes
@@ -42,7 +41,11 @@ public class Main {
         //comidaDAO.insertar(ensaladaCaprese);
 
         // Eliminamos un registro
-        //comidaDAO.eliminar(1);
+        // comidaDAO.eliminar(5);
+
+        // Modificamos un registro
+        ensaladaCaprese.setPrecio(10000.0);
+        comidaDAO.modificarPrecioRegistro(ensaladaCaprese);
 
     }
 

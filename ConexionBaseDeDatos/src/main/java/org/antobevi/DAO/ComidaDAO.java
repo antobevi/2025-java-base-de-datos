@@ -26,6 +26,7 @@ public class ComidaDAO {
             System.out.println("El registro se inserto correctamente en la base de datos.");
             // Paso 5: Cerrar la conexion por una cuestion de seguridad (Opcional)
             stmt.close();
+            conexion.close();
 
         } catch(Exception e) {
             System.out.println("Ha ocurrido un error y el registro no pudo ser insertado..");
@@ -41,9 +42,28 @@ public class ComidaDAO {
             stmt.execute(sql);
             System.out.println("El registro se elimino correctamente de la base de datos.");
             stmt.close();
+            conexion.close();
 
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error y el registro no pudo ser eliminado..");
+            e.printStackTrace();
+        }
+    }
+
+    public static void modificarPrecioRegistro(Comida comida) {
+        Connection conexion = Conexion.conectar();
+
+        try {
+            String sql = "UPDATE Comida SET PRECIO = '" + comida.getPrecio()
+                        + "' WHERE ID = " + comida.getId();
+            Statement stmt = conexion.createStatement();
+            stmt.execute(sql);
+            System.out.println("El registro se modifico correctamente en la base de datos.");
+            stmt.close();
+            conexion.close();
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error y el registro no pudo ser modificado..");
             e.printStackTrace();
         }
     }
